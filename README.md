@@ -5,13 +5,13 @@ using Laravel version 7.x
 TokoRacoon is an online shop website made by PT Musang, which was done in less than a month by their one employee.
 
 ## Features
-Admin:
+### Admin:
 - View all product/individual product
 - Add new product
 - Edit existing product
 - Delete existing product
 - Have all validation needed for the book information (Title, Author, Pages, YearPublished)
-User:
+### User:
 - Login and Register account
 - View all product/individual product
 - Add product to cart
