@@ -49,7 +49,7 @@ And all features should work normally, type:
 php artisan serve
 ```
 
-You can do CRUD for the product using admin account, which is:
-email: admin@gmail.com
-pw: admin
+You can do CRUD for the product using admin account, which is:__
+email: admin@gmail.com__
+pw: admin__
 
