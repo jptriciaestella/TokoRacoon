@@ -1,5 +1,6 @@
 <?php
 
+use App\category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $array = ['Beauty and Health', 'Technology', 'Hobby', 'Fashion'];
+
+        foreach ($array as $category) {
+            category::create([
+                'category_name' => $category
+            ]);
+        }
+
+        $this->call(UserSeeder::class);
     }
 }
