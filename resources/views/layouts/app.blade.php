@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body class="body-animate" id="body-html">
         <!-- HEADER -->
         <header>
             <div id="app">
@@ -44,6 +44,16 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto text-end">
                             <!-- Authentication Links -->
+                            @if(Auth::check() && Auth::user()->role === 'user')
+                                <a class="btn btn-warning" style="margin-right:20px;" href="{{route('cart.index')}}">
+                                <img src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-shopping-cart_90604.png" style="height:20px; margin-right:5px;" alt="">
+                                My Cart
+                                @if (Cart::instance('default')->count() > 0)
+                                    <span>({{ Cart::instance('default')->count() }})</span>
+                                @endif
+                                </a>
+                            @endif
+                            
                             @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,6 +70,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::check() && Auth::user()->role === 'user')
+                                        <a class="dropdown-item" href="">
+                                                My orders
+                                        </a>
+                                    @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -102,5 +117,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/home.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+
+    @yield('extra-js')
+    
 </body>
 </html>

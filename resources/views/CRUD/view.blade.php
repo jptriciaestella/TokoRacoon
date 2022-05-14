@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <div class="small mb-1">Last Updated:  {{$product->updated_at}}</div>
                 <h1 class="display-4 fw-bolder">{{$product->name}}</h1>
-                <h2 class="display-8 fw-bolder">Rp. {{$product->price}}</h2>
+                <h2 class="display-8 fw-bolder">Rp. {{number_format($product->price,2)}}</h2>
                 <div class="fs-2 mb-5">
                     <span>{{$product->stock}} left</span>
                 </div>
@@ -33,7 +33,14 @@
                         <div style="margin:3px"></div>
                         <a class="btn btn-outline-danger flex-shrink-0" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
                     @else
-                        <a class="btn btn-outline-success flex-shrink-0" href="">Add to cart</a>
+                        @if($product->stock > 0)
+                        <form action="{{ route('cart.store', $product) }}" method="POST">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-outline-success flex-shrink-0">Add to Cart</button>
+                        </form>
+                        @else
+                            <a class="btn btn-outline-danger flex-shrink-0 disabled">Sold Out</a>
+                        @endif
                     @endif
                 </div>
             </div>

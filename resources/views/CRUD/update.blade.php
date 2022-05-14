@@ -4,7 +4,7 @@
 
 <div style="margin:80px"></div>
 
-<div class="container">
+<div class="container newPage">
     <form method="POST" action="{{ route('Update', $product->id) }}" enctype="multipart/form-data">
         <div class="card">
             <h3 class="card-header" style="padding:1rem">{{ __('Update Product') }}</h3>
@@ -59,7 +59,10 @@
                     <hr style="margin: 1.5rem 0">
 
                     <div class="form-row">
-                        <div class="name mb-2 h5">{{ __('Category *') }}</div>
+                        <div class="name mb-2 h5">{{ __('Category (Optional)') }}</div>
+                        <div class="text-warning" style="margin: 5px 0px; font-size: 12px;">
+                            The category will remain the same if you don't fill the following field.
+                        </div>
                         <div class="col-md-20">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="category[]">
@@ -88,7 +91,10 @@
                     <hr style="margin: 1.5rem 0">
 
                     <div class="form-row">
-                        <div class="name mb-2 h5">{{ __('Product Picture *') }}</div>
+                        <div class="name mb-2 h5">{{ __('New Product Picture (Optional)') }}</div>
+                        <div class="text-warning" style="margin: 5px 0px; font-size: 12px;">
+                            The picture will remain the same if you don't fill the following field.
+                        </div>
                         <div class="form-group">
                             <input type="file" class="form-control" id="image" name="image" onchange="previewImage()">
                         </div>

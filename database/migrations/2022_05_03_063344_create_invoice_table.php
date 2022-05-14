@@ -18,6 +18,12 @@ class CreateInvoiceTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer("user_id")->unsigned();
+            $table->integer('tax')->unsigned();
+            $table->integer('total')->unsigned();
+
+            $table->string('name_address');
+            $table->string('address');
+            $table->integer('postal_code')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
         });

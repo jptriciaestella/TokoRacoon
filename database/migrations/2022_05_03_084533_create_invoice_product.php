@@ -24,6 +24,7 @@ class CreateInvoiceProduct extends Migration
                 ->on('products')->onUpdate('cascade')->onDelete('set null');
 
             $table->integer('quantity')->unsigned();
+            $table->integer('subtotal')->unsigned();
             $table->timestamps();
         });
     }

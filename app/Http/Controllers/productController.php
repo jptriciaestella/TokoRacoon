@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\product;
 use App\Http\Requests\productRequest;
+use App\Http\Requests\productRequestUpdate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -47,22 +48,38 @@ class productController extends Controller
         return view('CRUD.update', ['product' => $products]);
     }
 
-    public function ShowUpdateForm(productRequest $request, $id){
+    public function ShowUpdateForm(productRequestUpdate $request, $id){
         $productUpdate = product::where('id', '=', $id)->first();
-        $path = $request->file('image')->store('public/images');
-        $path = substr($path, strlen('public/'));
-        if($productUpdate->image)
+        
+        if($request->file('image'))
         {
-            Storage::disk('public')->delete($productUpdate->image);
+            $path = $request->file('image')->store('public/images');
+            $path = substr($path, strlen('public/'));
+            if($productUpdate->image)
+            {
+                Storage::disk('public')->delete($productUpdate->image);
+            }
+            $productUpdate->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'user_id' => Auth::user()->id,
+                'image' => $path,
+            ]);
         }
-        $productUpdate->update([
-            'name' => $request->name,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'user_id' => Auth::user()->id,
-            'image' => $path,
-        ]);
-        $productUpdate->category()->sync($request->category);
+        else
+        {
+            $productUpdate->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+
+        if($request->category){
+            $productUpdate->category()->sync($request->category);
+        }
 
         session()->flash('success', 'Your product has been updated.');
 

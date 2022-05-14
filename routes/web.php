@@ -26,5 +26,10 @@ Route::middleware('admin')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/view/{id}', 'productController@ViewProduct')->name('ViewProduct');
+    Route::get('/cart', 'cartController@index')->name('cart.index');
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+    Route::patch('/cart/{product}', 'cartController@update')->name('cart.update');
+    Route::delete('/cart/{product}', 'cartController@destroy')->name('cart.destroy');
+    Route::post('/cart/{product}', 'cartController@store')->name('cart.store');
 });
 

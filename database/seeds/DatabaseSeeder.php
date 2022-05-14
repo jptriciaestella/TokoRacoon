@@ -1,6 +1,7 @@
 <?php
 
 use App\category;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,13 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $array = ['Beauty and Health', 'Technology', 'Hobby', 'Fashion'];
+        
+        $now = Carbon::now()->toDateTimeString();
 
-        foreach ($array as $category) {
-            category::create([
-                'category_name' => $category
-            ]);
-        }
+        category::insert([
+            ['category_name' => 'Beauty and Health', 'slug' => 'Beauty%20and%20Health', 'created_at' => $now, 'updated_at' => $now],
+            ['category_name' => 'Technology', 'slug' => 'Technology', 'created_at' => $now, 'updated_at' => $now],
+            ['category_name' => 'Hobby', 'slug' => 'Hobby', 'created_at' => $now, 'updated_at' => $now],
+            ['category_name' => 'Fashion', 'slug' => 'Fashion', 'created_at' => $now, 'updated_at' => $now],
+        ]);
 
         $this->call(UserSeeder::class);
     }
