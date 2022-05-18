@@ -46,7 +46,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                This action cannot be undone!
+                This action cannot be undone! It's better to update the product stock then to delete the product completely, as deleting the product may affect order details. The order will show the correct Subtotal, Tax, and Total, but not all of the product listed if one of it is deleted.
             </div>
             <div class="modal-footer">
                 <form action="{{route('DeleteProduct', $product->id)}}" method="POST">
