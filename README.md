@@ -11,12 +11,19 @@ TokoRacoon is an online shop website made by PT Musang, which was done in less t
 - Edit existing product
 - Delete existing product
 - Have all validation needed for the product information
+- View all order received from users
+- Deliver the order
+
 ### User:
 - Login and Register account
 - View all product/individual product
 - Add product to cart
+- Update product quantity in cart
+- Delete product in cart
 - Checkout
-
+- View all order they made
+- View order details
+- Complete the order
 
 ## Installation
 
