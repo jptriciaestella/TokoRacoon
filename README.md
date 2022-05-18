@@ -2,7 +2,7 @@
 ### Made by Tricia Estella
 using Laravel version 7.x
 
-TokoRacoon is an online shop website made by PT Musang, which was done in less than a month by their one employee.
+TokoRacoon is an online shop website made by PT Musang, which was done in less than a month by their one employee. In TokoRacoon, we sell everything, including poison.
 
 ## Features
 ### Admin:
