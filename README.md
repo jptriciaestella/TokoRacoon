@@ -12,6 +12,7 @@ TokoRacoon is an online shop website made by PT Musang, which was done in less t
 - Delete existing product
 - Have all validation needed for the product information
 - View all order received from users
+- View order details (invoice)
 - Deliver the order
 
 ### User:
@@ -22,8 +23,18 @@ TokoRacoon is an online shop website made by PT Musang, which was done in less t
 - Delete product in cart
 - Checkout
 - View all order they made
-- View order details
+- View order details (invoice)
 - Complete the order
+
+### Other features:
+- Product cannot be added to cart once it is sold out
+- You can't have more product in your cart than what's available in the database
+- Added 11% tax per purchase for more complexity and CUAN
+- Prooduct stock automatically decreased once user check-out the product
+- Order status: In Progress, In Delivery, Completed
+
+## Important Notice!!
+It's better to update the product stock then to delete the product completely, as deleting the product affect order details. The order will show the correct Subtotal, Tax, and Total, but not all of the product listed if one of it is deleted.
 
 ## Installation
 
