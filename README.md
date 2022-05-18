@@ -34,7 +34,7 @@ TokoRacoon is an online shop website made by PT Musang, which was done in less t
 - Order status: In Progress, In Delivery, Completed
 
 ## Important Notice!!
-It's better to update the product stock then to delete the product completely, as deleting the product affect order details. The order will show the correct Subtotal, Tax, and Total, but not all of the product listed if one of it is deleted.
+It's better to update the product stock then to delete the product completely, as deleting the product may affect order details. The order will show the correct Subtotal, Tax, and Total, but not all of the product listed if one of it is deleted.
 
 ## Installation
 
