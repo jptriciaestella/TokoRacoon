@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <div class="small mb-1">Last Updated:  {{$product->updated_at}}</div>
                 <h1 class="display-4 fw-bolder">{{$product->name}}</h1>
-                <h2 class="display-8 fw-bolder">Rp. {{number_format($product->price,2)}}</h2>
+                <h2 class="display-8 fw-bolder">Rp. {{number_format($product->price, 2)}}</h2>
                 <div class="fs-2 mb-5">
                     <span>{{$product->stock}} left</span>
                 </div>

@@ -27,9 +27,13 @@ Route::middleware('auth')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/view/{id}', 'productController@ViewProduct')->name('ViewProduct');
     Route::get('/cart', 'cartController@index')->name('cart.index');
-    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
     Route::patch('/cart/{product}', 'cartController@update')->name('cart.update');
     Route::delete('/cart/{product}', 'cartController@destroy')->name('cart.destroy');
     Route::post('/cart/{product}', 'cartController@store')->name('cart.store');
+    Route::get('/checkout', 'checkoutController@index')->name('checkout.index')->middleware('auth');
+    Route::post('/checkout', 'checkoutController@store')->name('checkout.store');
+    Route::get('/my-orders', 'invoiceController@index')->name('orders.index');
+    Route::get('/my-orders/{id}', 'invoiceController@show')->name('orders.show');
+    Route::patch('/my-orders/{id}', 'invoiceController@update')->name('orders.update');
 });
 

@@ -17,7 +17,7 @@ class CreateInvoiceProduct extends Migration
             $table->increments('id');
             $table->integer('invoice_id')->unsigned()->nullable();
             $table->foreign('invoice_id')->references('id')
-                  ->on('invoice')->onUpdate('cascade')->onDelete('set null');
+                  ->on('invoices')->onUpdate('cascade')->onDelete('set null');
 
             $table->integer('product_id')->unsigned()->nullable();
             $table->foreign('product_id')->references('id')

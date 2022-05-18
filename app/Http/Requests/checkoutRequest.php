@@ -13,7 +13,7 @@ class checkoutRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class checkoutRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'firstName' => 'required|between:5,20',
+            'lastName' => 'required|between:5,20',
+            'address' => 'required|between:10,100',
+            'country' => 'required',
+            'city' => 'required',
+            'zip' => 'required|integer'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'The :attribute is required.',
+            'between' => 'The :attribute should be between :min - :max.',
+            'integer' => 'The :attribute should be an integer',
         ];
     }
 }

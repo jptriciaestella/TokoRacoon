@@ -37,30 +37,30 @@
             </a>
         </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete {{$product->name}}?</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete {{$product->name}}?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                This action cannot be undone!
+            </div>
+            <div class="modal-footer">
+                <form action="{{route('DeleteProduct', $product->id)}}" method="POST">
+                            @csrf
+                            @method('Delete')
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div style="margin:3px"></div>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+            </div>
         </div>
-        <div class="modal-body">
-            This action cannot be undone!
-        </div>
-        <div class="modal-footer">
-            <form action="{{route('DeleteProduct', $product->id)}}" method="POST">
-                        @csrf
-                        @method('Delete')
-                <div class="d-flex">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <div style="margin:3px"></div>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </div>
-            </form>
-        </div>
-        </div>
-    </div>
     </div>
     @endforeach
 @else

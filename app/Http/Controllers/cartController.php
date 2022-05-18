@@ -12,6 +12,9 @@ class cartController extends Controller
 {
     public function index()
     {
+        if(Auth::user()->role != 'user'){
+            return redirect('/');
+        }
 
         return view('cart');
     }

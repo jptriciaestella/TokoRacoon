@@ -71,8 +71,12 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::check() && Auth::user()->role === 'user')
-                                        <a class="dropdown-item" href="">
+                                        <a class="dropdown-item" href="{{ route('orders.index') }}">
                                                 My orders
+                                        </a>
+                                    @elseif(Auth::user()->role === 'admin')
+                                        <a class="dropdown-item" href="{{ route('orders.index') }}">
+                                                All orders
                                         </a>
                                     @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
